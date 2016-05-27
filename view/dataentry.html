@@ -1,0 +1,23 @@
+<div ng-controller="entryController">
+	<div class="row">
+		<div class="col-md-12">
+		<div class="col-md-6">
+			<div class="form-group" >
+				<label for="username">Product Code</label>
+				<input type="text" ng-model="prodCode" name="prodCode" id="prodCode" class="form-control"   required>
+				<span ng-show="myForm.prodCode.$touched && myForm.prodCode.$invalid">Product Code is Required.</span>
+			</div>
+		</div>
+		<div class="col-md-6">	
+			<div class="form-group" >
+				<label for="username">Quantity</label>
+				<input type="text" ng-model="quantity" name="quantity" id="quantity" class="form-control"   required>
+				<span ng-show="myForm.quantity.$touched && myForm.quantity.$invalid">Product Code is Required.</span>
+			</div>
+		</div>							
+		</div>
+		<div class="col-md-8">
+			
+		</div>
+	</div>
+</div>
