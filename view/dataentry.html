@@ -1,23 +1,74 @@
 <div ng-controller="entryController">
+  <div class="container entry-details">
+  <h1>Data Entry Screen</h1>
+  <x></x>
+  <form >
+  <div class="data-entry">
 	<div class="row">
-		<div class="col-md-12">
-		<div class="col-md-6">
+		
+		
+		<div class="col-md-2">
 			<div class="form-group" >
-				<label for="username">Product Code</label>
-				<input type="text" ng-model="prodCode" name="prodCode" id="prodCode" class="form-control"   required>
-				<span ng-show="myForm.prodCode.$touched && myForm.prodCode.$invalid">Product Code is Required.</span>
+				
+				<input type="text" ng-change="addproduct()" ng-model="product.productId" name="prodCode" id="prodCode" placeholder="Product" class="form-control"   required>
 			</div>
 		</div>
-		<div class="col-md-6">	
+		<div class="col-md-2">	
 			<div class="form-group" >
-				<label for="username">Quantity</label>
-				<input type="text" ng-model="quantity" name="quantity" id="quantity" class="form-control"   required>
-				<span ng-show="myForm.quantity.$touched && myForm.quantity.$invalid">Product Code is Required.</span>
+				<strong>Product Name:</strong>&nbsp;<p ng-bind="product.productName"></p>
 			</div>
-		</div>							
+		</div>		
+		<div class="col-md-2">	
+			<div class="form-group" >
+				<strong>Product Details:</strong>&nbsp;<p ng-bind="product.productDetails"></p>
+			</div>
 		</div>
-		<div class="col-md-8">
-			
+		<div class="col-md-2">	
+			<div class="form-group" >
+				<input type="text" ng-model="product.productQuantity" ng-change="changeQuantity()" name="quantity" id="quantity" placeholder="Quantity" class="form-control"   required>
+			</div>
 		</div>
+		<div class="col-md-2">	
+			<div class="form-group" >
+				<strong>Price/Unit :</strong>&nbsp;<p>{{product.shipingCost | currency:" Rs "}}</p>
+			</div>		
+
+		</div>
+
+		<div class="col-md-2">
+			<div class="form-group" >
+				<strong>Total Cost :</strong>&nbsp;<p >{{product.totalCost | currency:" Rs "}}</p>
+			</div>		
+
+		</div>	
+		<div class="row addbtn">
+			<div class="mainArea"></div>
+
+		</div>																
 	</div>
+	<hr>
+	<table class="table">
+		<thead>
+			<th>Product ID</th>
+			<th>Product Name</th>
+			<th>Product Details</th>
+			<th>Quantity</th>
+			<th>Price/Unit</th>
+			<th>Total Cost</th>
+		</thead>
+		<tbody class="productdatails">
+		</tbody>
+	</table>
+	<hr>				
+	<div class="row">
+		<div class="col-md-offset-10 col-md-2">Total Price :  <p class="totalprice">1234</p></div>
+	</div>
+	<div class="row">
+		<div class="col-md-offset-10 col-md-2"><button type="button" class="btn btn-primary btn-lg active">Submit</button>
+		</div>
+
+  	</div>
+  				
+  </div>
+  </form>
 </div>

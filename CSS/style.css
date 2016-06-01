@@ -4,4 +4,37 @@
 .registerpage button {
     padding: 5px 40px;
 }
+strong ~ p {
+    font-size: 15px;
+    font-family: cursive;
+	color: blueviolet;
+	font-weight: 900;
+}
+p.totalprice {
+    display: inline-block;
+    font-size: 18px;
+    color: maroon;
+    font-weight: 900;
+}
+div>strong {
+    color: chocolate;
+	font-size:20px;
+}
+.entry-details h1 {
+    padding: 20px 0;
+    color: darkslateblue;
+}
+button.btn.btn-primary {
+    padding: 5px 35px;
+}
+.data-entry {
+    border: 8px solid lavender;
+    padding: 30px 10px 10px 10px;
+}
+.data-entry .form-group {
+    text-align: center;
+}
 
+.box{
+	color:red;
+}
