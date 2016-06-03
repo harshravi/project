@@ -1,9 +1,9 @@
 [
 	{
-		"productID":1,
+		"productID":"1",
 		"properties":
 			{
-				"productID":"1",
+				
 				"productName":"Vim",
 				"productDetails":"deturgent",
 				"vat":"",
@@ -14,7 +14,7 @@
 		"productID":"2",
 		"properties":
 			{
-				"productID":"2",
+				
 				"productName":"Apple",
 				"productDetails":"fruits",
 				"vat":"",
@@ -48,7 +48,7 @@
 		"productID":"5",
 		"properties":
 			{
-				"productID":"5",
+				
 				"productName":"Pencil",
 				"productDetails":"stationary",
 				"vat":"",
@@ -60,7 +60,7 @@
 		"productID":"6",
 		"properties":
 			{
-				"productID":"6",
+				
 				"productName":"Pan",
 				"productDetails":"stationary",
 				"vat":"",
@@ -93,7 +93,7 @@
 		"productID":"9",
 		"properties":
 			{
-				"productID":"9",
+				
 				"productName":"shocks",
 				"productDetails":"clothes",
 				"vat":"",
@@ -105,8 +105,8 @@
 		"productID":"10",
 		"properties":
 			{
-				"productID":"10",
-				"productID":"10",
+				
+				
 				"productName":"shirt",
 				"productDetails":"clothes",
 				"vat":"",
@@ -118,11 +118,11 @@
 		"productID":"11",
 		"properties":
 			{
-				"productID":"11",
+				
 				"productName":"potato",
 				"productDetails":"vegitables",
 				"vat":"",
-				"shipingCost":"20s"
+				"shipingCost":"20"
 			}
 	}
 

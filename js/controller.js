@@ -62,28 +62,67 @@
 	   }]);
 
 
-		app.controller('entryController',function($scope,$http){
+		app.controller('entryController',function($scope,$http,$rootScope){
 			
 			
 			$http.get('js/product.json',function(){
 			
 			}).success(function(data){
 //				console.log(JSON.stringify(data));
-				
-				$scope.addproduct = function(){	
-						var j = $scope.product.productId;
-						if(data[j-1].productID == j){
-							$scope.product = data[j-1].properties;
-							$scope.product.productId = data[(j-1)].productID;
-							$scope.product.productQuantity = 1;
-							$scope.product.totalCost = $scope.product.shipingCost;
-						}
-						else{
-							
-							alert("hi");
-						}	
-				}
+				$scope.cartProduct = [];
+				$scope.allProduct = data;
+				$scope.addproduct = function(product) {
 
+					  if($scope.product== undefined || $scope.product.productId == null || ( $scope.product.productId > (data.length)) || ($scope.product.productId < 1 ) ) {
+						  if ( ( $scope.product.productId > (data.length+1)) || ($scope.product.productId < 1 ) || ($scope.product.productId ==0)){
+							  $scope.inValid = true;
+							  $scope.empty = false; 
+						   }
+						  else if($scope.product.productId == (data[product]-1).productID){
+					  	    $scope.empty = false;
+							$scope.inValid = false;  
+						  }
+						  else{
+					  	    $scope.empty = true;
+							$scope.inValid = false;
+						  }
+						  $scope.product.shipingCost =null;
+						  $scope.product.productQuantity = null;
+						  $scope.product.productDetails =null;
+						  $scope.product.productName =null;
+						  $scope.product.totalCost = null;						  
+						   
+					  } else {
+						  $scope.cartProduct=$scope.allProduct[(product.productId)-1];
+						  console.log($scope.cartProduct);
+						  $scope.product.shipingCost = $scope.cartProduct.properties.shipingCost;
+						  $scope.product.productQuantity = 1;
+						  $scope.product.productDetails = $scope.cartProduct.properties.productDetails;
+						  $scope.product.productName = $scope.cartProduct.properties.productName;
+						  $scope.product.totalCost = $scope.cartProduct.properties.shipingCost;
+						  //alert(JSON.stringify($scope.cartProduct[0]));
+						 
+					  }
+				}
+				$scope.dataCollection = [];
+				$scope.addData = function(){
+						var productCollection = {};
+						productCollection.Id=$scope.product.productId;
+						productCollection.Name=$scope.product.productName;
+						productCollection.Details=$scope.product.productDetails;
+						productCollection.Quantity=$scope.product.quantity;
+						productCollection.Cost=$scope.product.shipingCost;
+						productCollection.finalCost=$scope.product.totalCost;
+						$scope.dataCollection.push(productCollection);
+						
+						var total = 0;
+							for (i = 0; i < $scope.dataCollection.length; i++) {  
+    							total += Number($scope.dataCollection[i].finalCost);  
+							}
+						$scope.bill = total;	
+					
+						
+				}
 				$scope.changeQuantity = function(product) {
 
 					$scope.product.totalCost = ($scope.product.shipingCost*$scope.product.productQuantity);		
@@ -97,22 +136,6 @@
 		});
 
 
-		app.directive('mainArea', function() {
-			return {
-				scope:{},
-				restrict: "C",
-				template: "<div class='col-md-offset-9 col-md-3'>"+
-					"<button type='button' ng-click='appendr()' class='btn btn-primary'>" +
-					"Add New Product" + "</button>" +
-				"</div>",
-				link: function($scope,$element,$attrs) {
-					$scope.appendr = function() {
-						var p = angular.element(document.querySelector( 'tbody.productdatails' ));
-						p.append('<tr ng-bind="productDetail"></tr>');
-					}
-				}
-			}
-		});
 //		app.directive('x',function(){
 //			return{
 //				scope:{},

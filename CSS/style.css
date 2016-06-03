@@ -38,3 +38,6 @@ button.btn.btn-primary {
 .box{
 	color:red;
 }
+button.newproduct.btn.btn-primary {
+    padding: 5px 12px;
+}

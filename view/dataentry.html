@@ -2,7 +2,7 @@
   <div class="container entry-details">
   <h1>Data Entry Screen</h1>
   <x></x>
-  <form >
+  <form name="userFrom" required>
   <div class="data-entry">
 	<div class="row">
 		
@@ -10,7 +10,9 @@
 		<div class="col-md-2">
 			<div class="form-group" >
 				
-				<input type="text" ng-change="addproduct()" ng-model="product.productId" name="prodCode" id="prodCode" placeholder="Product" class="form-control"   required>
+				<input type="number" ng-change="addproduct(product)" ng-model="product.productId" name="prodCode" id="prodCode" placeholder="Product" class="form-control"  ng-maxlength="2"   required>
+				<span ng-show="empty" style="color:red">Please enter a Product Id</span>
+				<span ng-show="inValid" style="color:red;">Product with this Id does not exists</span>
 			</div>
 		</div>
 		<div class="col-md-2">	
@@ -25,7 +27,7 @@
 		</div>
 		<div class="col-md-2">	
 			<div class="form-group" >
-				<input type="text" ng-model="product.productQuantity" ng-change="changeQuantity()" name="quantity" id="quantity" placeholder="Quantity" class="form-control"   required>
+				<input type="text" ng-model="product.productQuantity" ng-change="changeQuantity(product)" name="quantity" id="quantity" placeholder="Quantity" class="form-control"   required>
 			</div>
 		</div>
 		<div class="col-md-2">	
@@ -41,13 +43,16 @@
 			</div>		
 
 		</div>	
-		<div class="row addbtn">
-			<div class="mainArea"></div>
+		<div class="addbtn">
+			<div class='col-md-offset-10 col-md-2'>
+					<button type='button' ng-click='addData()' class='newproduct btn btn-primary'>
+					Add New Product + </button>
+			</div>
 
 		</div>																
 	</div>
 	<hr>
-	<table class="table">
+	<table class="table responsive">
 		<thead>
 			<th>Product ID</th>
 			<th>Product Name</th>
@@ -55,16 +60,27 @@
 			<th>Quantity</th>
 			<th>Price/Unit</th>
 			<th>Total Cost</th>
+			
+
 		</thead>
 		<tbody class="productdatails">
+			<tr ng-repeat="productdata in dataCollection">
+				<td>{{productdata.Id}}</td>
+				<td>{{productdata.Name}}</td>
+				<td>{{productdata.Details}}</td>
+				<td>{{productdata.Quantity}}</td>
+				<td>{{productdata.Cost}}</td>
+				<td>{{productdata.finalCost}}</td>
+
+			</tr>
 		</tbody>
 	</table>
 	<hr>				
 	<div class="row">
-		<div class="col-md-offset-10 col-md-2">Total Price :  <p class="totalprice">1234</p></div>
+		<div class="col-md-offset-10 col-md-2">Total Price :  <p class="totalprice">{{bill | currency:"&#8377"}}</p></div>
 	</div>
 	<div class="row">
-		<div class="col-md-offset-10 col-md-2"><button type="button" class="btn btn-primary btn-lg active">Submit</button>
+		<div class="col-md-offset-10 col-md-2"><button type="button" class="btn btn-primary btn-lg">Submit</button>
 		</div>
 
   	</div>

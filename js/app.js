@@ -1,2 +1,2 @@
- var app = angular.module('pointOfSaleApp',['ngRoute']);
+ var app = angular.module('pointOfSaleApp',['ngRoute','ngMessages']);
 
