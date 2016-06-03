@@ -41,3 +41,9 @@ button.btn.btn-primary {
 button.newproduct.btn.btn-primary {
     padding: 5px 12px;
 }
+.col-md-offset-8.col-md-4 {
+    text-align: right;
+}
+.col-md-offset-10.col-md-2>button {
+    float: right;
+}

@@ -52,7 +52,7 @@
 		</div>																
 	</div>
 	<hr>
-	<table class="table responsive">
+	<table class="table table-striped responsive">
 		<thead>
 			<th>Product ID</th>
 			<th>Product Name</th>
@@ -77,7 +77,8 @@
 	</table>
 	<hr>				
 	<div class="row">
-		<div class="col-md-offset-10 col-md-2">Total Price :  <p class="totalprice">{{bill | currency:"&#8377"}}</p></div>
+		<div class="col-md-offset-8 col-md-4">Total Price :  <p class="totalprice">{{bill | currency:"&#8377"}}</p></div>
+		<div class="col-md-offset-8 col-md-4">Total Price Including VAT :  <p class="totalprice">{{vatcost | currency:"&#8377"}}</p></div>
 	</div>
 	<div class="row">
 		<div class="col-md-offset-10 col-md-2"><button type="button" class="btn btn-primary btn-lg">Submit</button>

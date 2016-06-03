@@ -116,10 +116,19 @@
 						$scope.dataCollection.push(productCollection);
 						
 						var total = 0;
+						var vat = 0;
+						var cost = 0;
 							for (i = 0; i < $scope.dataCollection.length; i++) {  
-    							total += Number($scope.dataCollection[i].finalCost);  
+    							cost += Number($scope.dataCollection[i].finalCost); 
+								vat = cost*((14.50/100));
+								console.log(vat);
+								total = (cost + vat);
+								console.log(total);
+								
 							}
-						$scope.bill = total;	
+						$scope.vatcost = total; 
+						$scope.bill = cost;
+						
 					
 						
 				}
